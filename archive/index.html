@@ -1,0 +1,38 @@
+---
+layout: page
+permalink: /archive/
+sitemap: false
+title: Archive
+---
+
+{% assign print_year = true %}
+{% assign print_month = true %}
+
+{% for post in site.posts %}
+    {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+    {% capture month %}{{ post.date | date: '%m' }}{% endcapture %}
+    {% if print_year %}
+        <h2>
+            <a href="{{ '/' | prepend: year | prepend: '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ year }}</a>
+        </h2>
+        <li class="list-unstyled">
+        {% assign print_year = false %}
+    {% endif %}
+    {% if print_month %}
+        <ul>
+            <a href="{{ '/' | prepend: month | prepend: '/' | prepend: year | prepend: '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ post.date | date: '%B' }}</a>
+        </ul>
+        {% assign print_month = false %}
+    {% endif %}
+    {% capture next_year %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+    {% if next_year != year %}
+        </li>
+        {% assign print_year = true %}
+        {% assign print_month = true %}
+    {% else %}
+        {% capture next_month %}{{ post.next.date | date: '%m' }}{% endcapture %}
+        {% if next_month != month %}
+            {% assign print_month = true %}
+        {% endif %}
+    {% endif %}
+{% endfor %}

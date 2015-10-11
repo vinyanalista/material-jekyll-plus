@@ -140,7 +140,7 @@ h6, .h6 {
     color: #444;
 }
 
-.blog-post-meta {
+.blog-post-date a, .blog-post-meta {
     color: #999;
 }
 
@@ -234,4 +234,10 @@ em.caption {
 
 .highlight .hll {
     background-color: #FFFF96;
+}
+
+/* Archives */
+
+h2.blog-archive-title a {
+    color: #FFF;
 }

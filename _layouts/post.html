@@ -13,7 +13,9 @@ layout: default
             <div class="blog-post-meta row">
                 <div class='col-sm-6'>
                     <p class="blog-post-date" itemprop="datePublished" content="{{ page.date | date: "%Y-%m-%d" }}">
-                        {{ page.date | date: "%b %-d, %Y" }}
+                        <a href="{{ page.date | date: '/%Y/%m/%d/' | prepend: site.baseurl | replace: '//', '/' }}">
+                            {{ page.date | date: "%b %-d, %Y" }}
+                        </a>
                     </p>
                 </div>
                 <div class='col-sm-6'>

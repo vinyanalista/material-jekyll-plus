@@ -1,19 +1,30 @@
 ---
 layout: default
+sitemap: false
 ---
 
-<meta itemprop="headline name" content="{{ site.title }}">
-<link href="{{ page.url | replace:'index.html', '' | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}" itemprop="url">
-
-{% if paginator %}
-    {% assign post_list = paginator.posts %}
-{% else %}
-    {% assign post_list = site.posts %}
-{% endif %}
-
 <div class="col-xs-12">
-    {% assign P = post_list | size %}
-    {% for post in post_list %}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="blog-archive-title" itemprop="headline name">
+                <a href="{{ page.url | prepend: site.baseurl | replace: '//', '/' }}" itemprop="url">
+                    {% case page.type %}
+                        {% when 'year' %}
+                            Archive of posts from {{ page.date | date: "%Y" }}
+                        {% when 'month' %}
+                            Archive of posts from {{ page.date | date: "%B %Y" }}
+                        {% when 'day' %}
+                            Archive of posts from {{ page.date | date: "%B %-d, %Y" }}
+                        {% else %}
+                            Archive of posts with {{ page.type }} '{{ page.title }}'
+                    {% endcase %}
+                </a>
+            </h1>
+        </div>
+    </div>
+
+    {% assign P = page.posts | size %}
+    {% for post in page.posts %}
         {% assign p = p | plus: 1 %}
         <div class="blog-post panel panel-default" itemscope itemtype="http://schema.org/BlogPosting">
             <div class="panel-heading">
@@ -102,31 +113,4 @@ layout: default
             </div><!-- .blog-post-content -->
         </div><!-- .blog-post -->
     {% endfor %}
-
-    {% if paginator and paginator.total_pages > 1 %}
-        <nav>
-            <ul class="pager">
-                <li class="{% if paginator.previous_page %}previous{% else %}disabled previous{% endif %}">
-                    <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}" aria-label="Newer">
-                        &laquo;<span class="hidden-xs"> Newer</span>
-                    </a>
-                </li>
-                <li{% if paginator.previous_page %}{% else %} class="disabled"{% endif %}>
-                    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' | replace: 'index.html', '' }}" aria-label="Next">
-                        &lsaquo;<span class="hidden-xs"> Next</span>
-                    </a>
-                </li>
-                <li{% if paginator.next_page %}{% else %} class="disabled"{% endif %}>
-                    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" aria-label="Previous">
-                        <span class="hidden-xs">Previous </span>&rsaquo;
-                    </a>
-                </li>
-                <li class="{% if paginator.next_page %}next{% else %}disabled next{% endif %}">
-                    <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', paginator.total_pages }}" aria-label="Older">
-                        <span class="hidden-xs">Older </span>&raquo;
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    {% endif %}
-</div><!-- .col-xs-12 -->
+</div>

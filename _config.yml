@@ -117,6 +117,11 @@ google:
 ###########
 
 gems:
+    # Jekyll Archives
+    # https://github.com/jekyll/jekyll-archives
+    # Automatically generate post archives by dates, tags, and categories.
+    - jekyll-archives
+
     # jekyll-auto-image plugin
     # https://github.com/merlos/jekyll-auto-image
     # Plugin that makes available the first image of a post in the template as a
@@ -128,6 +133,10 @@ gems:
     # https://github.com/jekyll/jekyll-sitemap
     # Plugin to silently generate a sitemaps.org compliant sitemap for your site
     - jekyll-sitemap
+
+# Jekyll Archives plugin configuration
+jekyll-archives:
+    enabled: all
 
 ##############
 # Publishing #
