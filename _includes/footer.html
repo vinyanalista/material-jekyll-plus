@@ -7,19 +7,30 @@
         </div>
         <div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person">
             <div class="col-sm-4">
-                <ul class="contact-list list-unstyled">
-                    {% if site.author.name %}
-                        <li itemprop="name">{{ site.author.name }}</li>
-                    {% endif %}
-                    {% if site.author.site %}
-                        <li><a href="{{ site.author.site }}" itemprop="url"><i class="fa fa-globe"></i> {{ site.author.site }}</a></li>
-                    {% endif %}
-                    {% if site.author.email %}
-                        <li><a href="mailto:{{ site.author.email }}" itemprop="email"><i class="fa fa-envelope"></i> {{ site.author.email }}</a></li>
-                    {% endif %}
-                </ul>
+                <div class="row">
+                    <div class="col-xs-3 col-sm-12">
+                        <p class="text-center">
+                            <a href='{{ site.author.email | to_secure_gravatar }}' title='{{ site.author.name }}'>
+                            <img src='{{ site.author.email | to_secure_gravatar }}' alt='{{ site.author.name }}' class='img-circle img-responsive img-thumbnail'>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-xs-9 col-sm-12">
+                        <ul class="contact-list list-unstyled">
+                            {% if site.author.name %}
+                                <li itemprop="name">{{ site.author.name }}</li>
+                            {% endif %}
+                            {% if site.author.site %}
+                                <li><a href="{{ site.author.site }}" itemprop="url"><i class="fa fa-globe"></i> {{ site.author.site }}</a></li>
+                            {% endif %}
+                            {% if site.author.email %}
+                                <li><a href="mailto:{{ site.author.email }}" itemprop="email"><i class="fa fa-envelope"></i> {{ site.author.email }}</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>                
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 {% if site.addthis_profile_id %}
                     <!-- AddThis Follow Buttons -->
                     <div class="addthis_toolbox addthis_32x32_style addthis_default_style center-block">
@@ -106,7 +117,7 @@
                     </ul>
                 {% endif %}
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-4">
                 <p class="text">{{ site.description }}</p>
             </div>
         </div>
