@@ -61,15 +61,11 @@ layout: default
             </div><!-- .panel-heading -->
             <div class="blog-post-content panel-body">
                 <div class="row">
-                    {% if post.image or site.image %}
+                    {% if post.image %}
                     <div class='col-sm-4'>
                         <p class='text-center'>
                             <a href='{{ post.url | prepend: site.baseurl | replace: '//', '/' }}'>
-                                {% if post.image %}
-                                    <img src='{{ post.image | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}' class='img-responsive img-thumbnail' itemprop="image">
-                                {% elsif site.image %}
-                                    <img src='{{ site.image | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}' class='img-responsive img-thumbnail' itemprop="image">
-                                {% endif %}
+                                <img src='{{ post.image | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}' class='img-responsive img-thumbnail' itemprop="image">
                             </a>
                         </p>
                     </div>

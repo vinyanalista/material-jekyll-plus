@@ -117,6 +117,13 @@ google:
 ###########
 
 gems:
+    # jekyll-auto-image plugin
+    # https://github.com/merlos/jekyll-auto-image
+    # Plugin that makes available the first image of a post in the template as a
+    # variable. It also allows to manually set images for posts using a front
+    # matter variable.
+    - jekyll-auto-image
+
     # Jekyll Sitemap Generator Plugin
     # https://github.com/jekyll/jekyll-sitemap
     # Plugin to silently generate a sitemaps.org compliant sitemap for your site

@@ -115,9 +115,7 @@
 
 <meta itemprop="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncatewords: 55 }}{% else %}{{ site.description }}{% endif %}">
 {% if page.image %}
-    <meta itemprop="image" content="{{ page.image | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}">
-{% elsif site.image %}
-    <meta itemprop="image" content="{{ site.image | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}">
+    <meta itemprop="image" content="{{ page.image }}">
 {% endif %}
 
 {% if site.disqus_shortname %}
