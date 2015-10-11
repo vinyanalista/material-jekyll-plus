@@ -39,7 +39,7 @@ excerpt_separator: <!--more-->
 # Sets the Markdown renderer to be used by Jekyll (kramdown, redcarpet or your
 # own)
 # Default: kramdown
-# markdown: kramdown
+markdown: redcarpet
 
 # For more info on how to use and configure Markdown renderers, as well as how
 # to create custom renderers, please refer to

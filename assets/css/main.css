@@ -239,3 +239,9 @@ em.caption {
     white-space: pre;
     word-wrap: normal;
 }
+
+/* http://zpao.com/posts/adding-line-highlights-to-markdown-code-fences/ */
+
+.highlight .hll {
+    background-color: #FFFF96;
+}
