@@ -96,18 +96,8 @@ sitemap: false
                     </div>
                 </div><!-- .row -->
 
-                {% if p == 1 and site.google.adsense.ad_unit_1 %}
-                    <div class="row">
-                        <div class="col-xs-12">
-                            {% include adsense.html id="ad_unit_1" ad_slot=site.google.adsense.ad_unit_1 %}
-                        </div><!-- .col-xs-12 -->
-                    </div><!-- .row -->
-                {% elsif p == P and site.google.adsense.ad_unit_2 %}
-                    <div class="row">
-                        <div class="col-xs-12">
-                            {% include adsense.html id="ad_unit_2" ad_slot=site.google.adsense.ad_unit_2 %}
-                        </div><!-- .col-xs-12 -->
-                    </div><!-- .row -->
+                {% if p == 1 and site.google.adsense.content_ad_unit_1 %}
+                    {% include adsense.html id="content_ad_unit_1" ad_slot=site.google.adsense.content_ad_unit_1 %}
                 {% endif %}
 
             </div><!-- .blog-post-content -->

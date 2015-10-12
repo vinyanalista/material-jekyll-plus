@@ -51,32 +51,42 @@ h6, .h6 {
 @media (max-width: 469px) {
     body {
         /* Margin bottom by footer height */
-        margin-bottom: 405px;
+        margin-bottom: 150px;
     }
 
     .footer {
         /* Set the fixed height of the footer here */
-        height: 405px;
+        height: 150px;
     }
 }
 
 @media (min-width: 470px) and (max-width: 767px) {
     body {
-        margin-bottom: 395px;
+        margin-bottom: 130px;
     }
 
     .footer {
-        height: 395px;
+        height: 130px;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) {
     body {
-        margin-bottom: 250px;
+        margin-bottom: 110px;
     }
 
     .footer {
-        height: 250px;
+        height: 110px;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        margin-bottom: 60px;
+    }
+
+    .footer {
+        height: 60px;
     }
 }
 
