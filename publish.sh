@@ -10,7 +10,7 @@ cd "../$TARGET"
 git pull
 git rm -rf *
 touch .nojekyll
-cp -r "../$SOURCE/_site/*" .
+cp -r ../$SOURCE/_site/* .
 git add --all .
 git commit -m "Publishing website (see commit $LAST_COMMIT_HASH from $SOURCE)"
 git push
