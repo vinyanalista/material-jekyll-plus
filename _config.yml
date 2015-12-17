@@ -156,6 +156,12 @@ gems:
     # Plugin to silently generate a sitemaps.org compliant sitemap for your site
     - jekyll-sitemap
 
+    # Last Modified At Plugin
+    # https://github.com/gjtorikian/jekyll-last-modified-at
+    # Plugin that makes available the last time a page was modified as a
+    # variable.
+    - jekyll-last-modified-at
+
 # Jekyll Archives plugin configuration
 jekyll-archives:
     enabled: all
