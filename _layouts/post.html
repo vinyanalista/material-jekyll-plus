@@ -2,8 +2,8 @@
 layout: default
 ---
 
-<div class="blog-post panel panel-default">
-    <header class="panel-heading">
+<div class="blog-post card mb-3">
+    <header class="card-header">
         <h1 class="blog-post-title" itemprop="headline name">
             <a class="blog-post-link" href="{{ page.url | prepend: site.baseurl | replace: '//', '/' }}" itemprop="mainEntityOfPage url">
                 {{ page.title }}
@@ -37,15 +37,13 @@ layout: default
         </div><!-- .blog-post-meta -->
     </header>
 
-    <article class="blog-post-content panel-body">
+    <article class="blog-post-content card-body">
         {% if site.google.adsense.content_ad_unit_1 %}
             {% include adsense.html id="content_ad_unit_1" ad_slot=site.google.adsense.content_ad_unit_1 %}
         {% endif %}
 
-        <div class="row" itemprop="articleBody mainEntity">
-            <div class="col-xs-12">
-                {{ content }}
-            </div>
+        <div itemprop="articleBody mainEntity">
+            {{ content }}
         </div>
 
         {% if site.addthis_profile_id %}
@@ -73,18 +71,18 @@ layout: default
             <div class="row">
                 <div class="col-xs-12">
                     <div id="disqus_thread"></div>
-                    <script type="text/javascript">
-                        /* * * CONFIGURATION VARIABLES * * */
-                        var disqus_shortname = '{{ site.disqus_shortname }}';
-                        var disqus_url = '{{ page.url | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}';
+                    <script>
+                        var disqus_config = function () {
+                            this.page.url = '{{ page.url | prepend: site.baseurl | replace: "//", "/" | prepend: site.url }}';
+                        };
 
-                        /* * * DON'T EDIT BELOW THIS LINE * * */
                         (function() {
-                            var dsq = document.createElement('script');
-                            dsq.type = 'text/javascript';
-                            dsq.async = true;
-                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                            var d = document, s = d.createElement('script');
+
+                            s.src = '//{{ site.disqus_shortname }}.disqus.com/embed.js';
+
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
                         })();
                     </script>
                     <noscript>

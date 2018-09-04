@@ -1,3 +1,20 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server
+# process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
 ###############
 # Author info #
 ###############
@@ -39,13 +56,26 @@ excerpt_separator: <!--more-->
 # Exclude directories and/or files from the conversion. These exclusions are
 # relative to the site's source directory and cannot be outside the source
 # directory.
-exclude: ['Gemfile', 'Gemfile.lock', 'LICENSE', 'publish.sh', 'README.md']
+#
+# The following items will not be processed, by default.
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - node_modules
+    - vendor/bundle/
+    - vendor/cache/
+    - vendor/gems/
+    - vendor/ruby/
+# Create a custom list to override the default setting.
+    - LICENSE
+    - README.md
+    - publish.sh
 
 # Markdown renderer
 # Sets the Markdown renderer to be used by Jekyll (kramdown, redcarpet or your
 # own)
 # Default: kramdown
-markdown: redcarpet
+# markdown: kramdown
 
 # For more info on how to use and configure Markdown renderers, as well as how
 # to create custom renderers, please refer to
@@ -138,7 +168,7 @@ google:
 # Plugins #
 ###########
 
-gems:
+plugins:
     # Jekyll Archives
     # https://github.com/jekyll/jekyll-archives
     # Automatically generate post archives by dates, tags, and categories.
@@ -151,16 +181,25 @@ gems:
     # matter variable.
     - jekyll-auto-image
 
-    # Jekyll Sitemap Generator Plugin
-    # https://github.com/jekyll/jekyll-sitemap
-    # Plugin to silently generate a sitemaps.org compliant sitemap for your site
-    - jekyll-sitemap
+    # Jekyll Feed plugin
+    # https://github.com/jekyll/jekyll-feed
+    # Plugin to generate an Atom (RSS-like) feed of your Jekyll posts
+    - jekyll-feed
 
     # Last Modified At Plugin
     # https://github.com/gjtorikian/jekyll-last-modified-at
     # Plugin that makes available the last time a page was modified as a
     # variable.
     - jekyll-last-modified-at
+
+    # Default pagination generator for Jekyll
+    # https://github.com/jekyll/jekyll-paginate
+    - jekyll-paginate
+
+    # Jekyll Sitemap Generator Plugin
+    # https://github.com/jekyll/jekyll-sitemap
+    # Plugin to silently generate a sitemaps.org compliant sitemap for your site
+    - jekyll-sitemap
 
 # Jekyll Archives plugin configuration
 jekyll-archives:
@@ -238,8 +277,8 @@ lang: en
 
 # AddThis profile ID
 # AddThis is a content sharing platform. It can be used to better integrate the
-# website with social networks. An AddThis profile contains configuration options
-# and analytics data for a website.
+# website with social networks. An AddThis profile contains configuration
+# options and analytics data for a website.
 # Default: not set (AddThis is not used to handle social networks integration)
 # addthis_profile_id: "ra-example123456789"
 
