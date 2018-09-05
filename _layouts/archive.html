@@ -3,8 +3,8 @@ layout: default
 sitemap: false
 ---
 
-<div class="panel panel-primary">
-    <div class="panel-heading">
+<div class="card mb-3">
+    <div class="card-header bg-primary">
         <h2 class="blog-archive-title" itemprop="headline name">
             <a href="{{ page.url | prepend: site.baseurl | replace: '//', '/' }}" itemprop="url">
                 {% case page.type %}
@@ -25,10 +25,10 @@ sitemap: false
 {% assign P = page.posts | size %}
 {% for post in page.posts %}
     {% assign p = p | plus: 1 %}
-    <div class="blog-post panel panel-default" itemscope itemtype="http://schema.org/BlogPosting">
-        <div class="panel-heading">
+    <div class="blog-post card mb-3" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="card-header">
             <h2 class="blog-post-title" itemprop="headline name">
-                <a class="blog-post-link" href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}" itemprop="url">
+                <a class="blog-post-link" href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}" itemprop="mainEntityOfPage url">
                     {{ post.title }}
                 </a>
             </h2>
@@ -70,6 +70,9 @@ sitemap: false
                         {% endif %}
                     </div>
                 {% endif %}
+                {% if site.lang %}
+                    <meta itemprop="inLanguage" content="{{ site.lang }}"/>
+                {% endif %}
                 <div itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
                     <meta itemprop="name" content="{{ site.title }}" />
                     <meta itemprop="url" content="{{ site.baseurl | prepend: site.url }}" />
@@ -80,8 +83,8 @@ sitemap: false
                     </div>
                 </div>
             </div><!-- .blog-post-meta -->
-        </div><!-- .panel-heading -->
-        <div class="blog-post-content panel-body">
+        </div><!-- .card-header -->
+        <div class="blog-post-content card-body">
             <div class="row">
                 {% if post.image %}
                 <div class='col-sm-4' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
