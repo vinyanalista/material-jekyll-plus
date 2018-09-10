@@ -35,7 +35,7 @@
 
         $(document).ready(function(){
             {% if site.google.adsense.content_ad_unit_2 %}
-                var $ad = $('#content_ad_unit_2').closest('.row');
+                var $ad = $('#content_ad_unit_2');
                 var $posts = $('.blog-post');
                 if (($posts.length > 1) || ($('.blog-archive-title').length > 0)) {
                     // Post listing
