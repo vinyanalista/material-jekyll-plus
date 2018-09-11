@@ -11,7 +11,6 @@ layout: default
     {% assign post_list = site.posts %}
 {% endif %}
 
-{% assign P = post_list | size %}
 {% for post in post_list %}
     {% assign p = p | plus: 1 %}
     <div class="blog-post card mb-3" itemscope itemtype="http://schema.org/BlogPosting">
@@ -79,7 +78,7 @@ layout: default
                 <div class='col-sm-4' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
                     <p class='text-center'>
                         <a href='{{ post.url | prepend: site.baseurl | replace: '//', '/' }}'>
-                            <img src='{{ post.image | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}' class='img-responsive img-thumbnail' itemprop="url">
+                            <img src='{{ post.image | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}' class='img-fluid img-thumbnail' itemprop="url">
                         </a>
                     </p>
                     <!--<meta itemprop="width" content=""/>--><!-- TODO Image width -->
