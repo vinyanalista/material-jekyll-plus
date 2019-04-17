@@ -21,7 +21,7 @@ gem "jekyll", "~> 3.7.4"
 group :jekyll_plugins do
     gem 'jekyll-archives', '2.1.1'
     gem 'jekyll-auto-image', '1.1.3'
-    gem "jekyll-feed", "~> 0.10.0"
+    gem "jekyll-feed", "~> 0.11.0"
     gem 'jekyll-last-modified-at', '1.0.1'
     gem "jekyll-paginate"
     gem 'jekyll-sitemap', '~> 1.2.0'
