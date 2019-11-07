@@ -1,12 +1,12 @@
 #!/bin/bash
-USER="livesuse"
-SOURCE="livesuse-website"
-TARGET="livesuse.github.io"
+USER="kamarada"
+SOURCE="kamarada-website"
+TARGET="kamarada.github.io"
 
 git add --all .
 git stash
 LAST_COMMIT_HASH=`git rev-parse HEAD`
-bundle exec jekyll build
+JEKYLL_ENV=production bundle exec jekyll build
 cd "../$TARGET"
 git pull
 git rm -rf *
