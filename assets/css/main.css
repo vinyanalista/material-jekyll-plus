@@ -117,9 +117,10 @@ table:not(.rouge-table) th {
     padding: 1.125rem 1.125rem 0 1.125rem;
 }
 
-/* About */
+/* About and Author */
 
-#about img {
+#about img,
+#author img {
     max-width: 150px;
 }
 
