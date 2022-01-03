@@ -11,7 +11,7 @@ cd "../$TARGET"
 git pull
 git rm -rf *
 touch .nojekyll
-cp -r ../$SOURCE/_site/* .
+cp -r ../$SOURCE/_site/. . # https://superuser.com/a/367303/458848
 git add --all .
 git commit -m "Publishing website (see commit $USER/$SOURCE@$LAST_COMMIT_HASH)"
 git push
