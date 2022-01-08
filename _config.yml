@@ -160,16 +160,14 @@ google:
 # Pagination #
 ##############
 
-# Specifies how many items should be displayed per page
-# Default: not set (pagination disabled)
-paginate: 10
+# Site configuration for the Jekyll 3 Pagination Gem
+# The values here represent the defaults if nothing is set
+pagination:
+    # Site-wide kill switch, disabled here it doesn't run at all
+    enabled: true
 
-# You may also specify the destination of the pagination pages
-# Default: /page:num (for example, /page2, /page3, etc)
-# paginate_path: "/blog/page/:num/"
-
-# For more info on pagination, please refer to
-# http://jekyllrb.com/docs/pagination/
+# For more info on pagination using the jekyll-paginate-v2 plugin, refer to
+# https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md
 
 ###########
 # Plugins #
@@ -199,9 +197,10 @@ plugins:
     # variable.
     - jekyll-last-modified-at
 
-    # Default pagination generator for Jekyll
-    # https://github.com/jekyll/jekyll-paginate
-    - jekyll-paginate
+    # Pagination Generator for Jekyll 3 (enhanced replacement for the old
+    # built-in jekyll-paginate gem)
+    # https://github.com/sverrirs/jekyll-paginate-v2
+    - jekyll-paginate-v2
 
     # Jekyll Sitemap Generator Plugin
     # https://github.com/jekyll/jekyll-sitemap

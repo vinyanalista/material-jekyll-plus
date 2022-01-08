@@ -18,7 +18,7 @@
                     {% endfor %}
                 {% else %}
                     {% for page in site.pages %}
-                        {% if page.title %}
+                        {% if page.title and page.autogen == nil %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
                             </li>
